@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+Use App\Http\Requests\Product\StoreRequest;
+Use App\Http\Requests\Product\UpdateRequest;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::get();
+        return view('admin.product.index');
     }
 
     /**
@@ -23,8 +26,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        $categories = Category::get();
+        $providers = Provider::get();
+        return view('admin.product.create',compact('categories','providers'));
     }
 
     /**
@@ -35,7 +40,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create($request->all());
+        return redirect()->route('products.index');
     }
 
     /**
