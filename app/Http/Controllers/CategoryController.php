@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreRequest;
-use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Category\UpdateRequest;
 
 class CategoryController extends Controller
 {
