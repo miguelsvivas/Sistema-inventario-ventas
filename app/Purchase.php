@@ -8,7 +8,19 @@ class Purchase extends Model
 {
      
     protected $fillable = [
-    'provider_id','user_id','purchase_date','tax',
+    'provider_id
+    user_id',
+    'purchase_date','tax',
     'total','status','invoice'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function provider(){
+        return $this->belongsTo(Provider::class);
+    }
+    public function purchaseDetails(){
+        return $this->hasMany(PurchaseDetails::class);
+    }
 }
