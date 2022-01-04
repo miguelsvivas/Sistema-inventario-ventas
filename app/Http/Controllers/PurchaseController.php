@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Purchase;
 use Illuminate\Http\Request;
+use App\Http\Requests\Purchase\StoreRequest;
+use App\Http\Requests\Purchase\UpdateRequest;
 
 class PurchaseController extends Controller
 {
@@ -14,7 +16,8 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        //
+        $purchases = Purchase::get();
+        return view('admin.purchase.index', compact('purchases'));
     }
 
     /**
