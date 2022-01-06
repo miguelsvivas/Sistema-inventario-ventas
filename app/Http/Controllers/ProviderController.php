@@ -17,7 +17,7 @@ class ProviderController extends Controller
     public function index()
     {
         $providers = Provider::get();
-        return view('admin.Provider.index',compact('categories'));
+        return view('admin.provider.index',compact('providers'));
     }
 
     /**
@@ -61,7 +61,7 @@ class ProviderController extends Controller
      */
     public function edit(Provider $provider)
     {
-        return view('admin.provider.show',compact('provider'));
+        return view('admin.provider.edit',compact('provider'));
     }
 
     /**
@@ -83,9 +83,9 @@ class ProviderController extends Controller
      * @param  \App\Provider  $Provider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provider $Provider)
+    public function destroy(Provider $provider)
     {
-        $Provider->delete();
-        return redirect()->route('categories.index');
+        $provider->delete();
+        return redirect()->route('providers.index');
     }
 }

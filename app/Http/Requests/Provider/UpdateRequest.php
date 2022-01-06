@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string|max:20',
             'email' => 'required|string|max:50',
-            'address' => 'nullable|string|max:250',,
+            'address' => 'nullable|string|max:250',
             'phone' =>' required|string|max:15',
         ];
     }
