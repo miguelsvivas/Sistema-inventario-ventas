@@ -49,15 +49,15 @@
 
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
-                        <span class="title">Help</span>
+                    <a href="{{route('products.index')}}">
+                        <span class="icon"><i class="fas fa-boxes fa-2x"></i></span>
+                        <span class="title">Products</span>
                     </a>
 
 
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('categories.index')}}">
                         <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
                         <span class="title">Categorias</span>
                     </a>
@@ -65,9 +65,9 @@
 
                 </li>
                 <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                        <span class="title">Password</span>
+                    <a href="{{route('providers.index')}}">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Proveedores</span>
                     </a>
 
 
