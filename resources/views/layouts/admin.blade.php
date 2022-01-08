@@ -41,9 +41,9 @@
 
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('clients.index')}}">
                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-                        <span class="title">Message</span>
+                        <span class="title">Clientes</span>
                     </a>
 
 
@@ -51,7 +51,7 @@
                 <li>
                     <a href="{{route('products.index')}}">
                         <span class="icon"><i class="fas fa-boxes fa-2x"></i></span>
-                        <span class="title">Products</span>
+                        <span class="title">Productos</span>
                     </a>
 
 

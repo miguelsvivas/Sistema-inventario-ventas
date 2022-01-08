@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'name'=>'string|required|max:255',
             'identificacion'=>'string|required|unique:clients,identificacion,'.$this->route('client')->id.'|min:8|max:11',
             'address'=>'nullable|string|max:255',
-            'phone'=>'string|min:9|max:9',
+            'phone'=>'string|min:7|max:12',
             'email'=>'string|max:255|email:rfc,dns',
         ];
     }

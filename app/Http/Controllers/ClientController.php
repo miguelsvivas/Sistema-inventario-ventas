@@ -16,8 +16,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = new Client::get();
-        return view('admin.category.index', compact('categories'));
+        $clients = Client::get();
+        return view('admin.client.index', compact('clients'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.client.create');
     }
 
     /**
@@ -36,9 +36,10 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        Client::create($request->all());
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -59,8 +60,9 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Client $client)
-    {
-        //
+    {   
+        
+        return view('admin.client.edit',compact('client'));
     }
 
     /**
@@ -70,9 +72,10 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(UpdateRequest $request, Client $client)
     {
-        //
+        $client->update($request->all());
+        return redirect()->route('clients.index');
     }
 
     /**

@@ -45,8 +45,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="image" class="form-label"></label>
-            <input type="file" class="form-control" name="image" id="image" aria-describedby="fileHelpId">
+            <label for="pic" class="form-label"></label>
+            <input type="file" class="form-control" name="pic" id="pic" aria-describedby="fileHelpId">
             <small id="fileHelpId" class="form-text text-muted">Cargar imagen</small>
           </div>
 
