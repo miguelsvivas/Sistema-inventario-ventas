@@ -27,10 +27,37 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($purchases as $purchase)
+            <tr>
+                <td>
+                    <a href="{{route('purchases.show', $purchase)}}">{{$purchase->id}}</a>
+                </td>
+                <td>
+                    {{\Carbon\Carbon::parse($purchase->purchase_date)->format('d M y h:i a')}}
+                </td>
+                <td>{{$purchase->total}}</td>
+
+                @if ($purchase->status == 'VALID')
+                <td>
+                    <a class="jsgrid-button btn btn-success" title="Editar">
+                        Activo <i class="fas fa-check"></i>
+                    </a>
+                </td>
+                @else
+                <td>
+                    <a class="jsgrid-button btn btn-danger" title="Editar">
+                        Cancelado <i class="fas fa-times"></i>
+                    </a>
+                </td>
+                @endif
+
+                <td>Editar | Borrar</td>
+
+            </tr>
 
           
 
-   
+            @endforeach
         </tbody>
     </table>
 </div>

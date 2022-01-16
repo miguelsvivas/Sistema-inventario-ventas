@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Client;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Sale\StoreRequest;
 use App\Http\Requests\Sale\UpdateRequest;
@@ -30,7 +32,9 @@ class SaleController extends Controller
     public function create()
     {
         $clients = Client::get();
-        return view('admin.sale.create',compact('clients'));
+        $products = Product::where('status', 'ACTIVE')->get();
+
+        return view('admin.sale.create',compact('clients','products'));
     }
 
     /**

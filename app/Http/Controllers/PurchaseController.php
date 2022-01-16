@@ -69,9 +69,16 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(Purchase $purchase)
-    {
-        //
+    public function show(Purchase $purchase){
+
+        $subtotal = 0 ;
+
+        $purchaseDetails = $purchase->purchaseDetails; 
+
+        foreach ($purchaseDetails as $purchaseDetail) {
+            $subtotal += $purchaseDetail->quantity * $purchaseDetail->price;
+        }
+        return view('admin.purchase.show', compact('purchase','purchaseDetails'));
     }
 
     /**
