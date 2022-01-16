@@ -16,6 +16,13 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
 
+            $table->unsignedBigInteger('provider_id');
+            $table->foreign('provider_id')->references('id')->on('providers');
+           
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+
+
             $table->dateTime('purchase_date');
 
             $table->decimal('tax');
@@ -23,13 +30,7 @@ class CreatePurchasesTable extends Migration
 
             $table->enum('status',['VALID','CANCELED'])->default('VALID');
 
-            $table->unsignedBigInteger('provider_id');
-            $table->foreign('provider_id')->references('id')->on('providers');
-           
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-
-            $table->string('invoice');
+            $table->string('invoice')->nullable();
 
             $table->timestamps();
         });

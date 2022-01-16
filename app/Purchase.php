@@ -8,10 +8,12 @@ class Purchase extends Model
 {
      
     protected $fillable = [
-    'provider_id
-    user_id',
-    'purchase_date','tax',
-    'total','status','invoice'
+    'provider_id',
+    'user_id',
+    'purchase_date',
+    'tax',
+    'total',
+    'status','invoice'
     ];
 
     public function user(){

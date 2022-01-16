@@ -117,4 +117,11 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function get_products_by_id(Request $request){
+        if ($request->ajax()) {
+            $products = Product::findOrFail($request->product_id);
+            return response()->json($products);
+        }
+    }
 }

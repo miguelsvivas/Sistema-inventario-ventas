@@ -41,6 +41,15 @@
 
                 </li>
                 <li>
+                    <a href="{{route('purchases.index')}}">
+                        <span class="icon"></span>
+                        <span class="title">Compras</span>
+                    </a>
+
+
+                </li>
+
+                <li>
                     <a href="{{route('clients.index')}}">
                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
                         <span class="title">Clientes</span>
@@ -73,9 +82,18 @@
 
                 </li>
                 <li>
+                    <a href="{{route('sales.index')}}">
+                        <span class="icon"></span>
+                        <span class="title">Ventas</span>
+                    </a>
+
+
+                </li>
+
+                <li>
                     <a href="#">
                         <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Sign Out</span>
+                        <span class="title">Cerrar Sesíon</span>
                     </a>
 
 
@@ -103,7 +121,7 @@
                 </div>
                 <!--userImage-->
                 <div class="user">
-                    <img src="user.jpg">
+                    {{-- <img src="user.jpg"> --}}
                 </div>
 
 
@@ -149,5 +167,7 @@
     }
     list.forEach((item) => item.addEventListener('mouseover',activeLink));
 </script>
+
+@yield('scripts')
 </body>
 </html>

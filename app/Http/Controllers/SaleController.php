@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Sale;
 use Illuminate\Http\Request;
+use App\Http\Requests\Sale\StoreRequest;
+use App\Http\Requests\Sale\UpdateRequest;
 
 class SaleController extends Controller
 {
@@ -14,7 +16,10 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::get();
+        return view('admin.sale.index',compact('sales'));
+        
+        
     }
 
     /**
@@ -24,7 +29,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
+        $clients = Client::get();
+        return view('admin.sale.create',compact('clients'));
     }
 
     /**
@@ -33,7 +39,7 @@ class SaleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         //
     }
