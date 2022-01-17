@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Sale;
 use App\Client;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\Sale\StoreRequest;
 use App\Http\Requests\Sale\UpdateRequest;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class SaleController extends Controller
 {
@@ -24,11 +27,7 @@ class SaleController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $clients = Client::get();
@@ -37,15 +36,19 @@ class SaleController extends Controller
         return view('admin.sale.create',compact('clients','products'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(StoreRequest $request)
     {
-        //
+        $sale = Sale::create($request->all()+[
+            'user_id'=>Auth::user()->id,
+            'sale_date'=>Carbon::now('America/Bogota'),
+        ]);
+
+        foreach ($request->product_id as $key => $product) {
+            $results[] = array("product_id"=>$request->product_id[$key], "quantity"=>$request->quantity[$key], "price"=>$request->price[$key], "discount"=>$request->discount[$key]);
+        }
+        $sale->saleDetails()->createMany($results);
+        return redirect()->route('sales.index');
     }
 
     /**
@@ -56,7 +59,13 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        //
+        $subtotal = 0 ;
+        $saleDetails = $sale->saleDetails;
+        foreach ($saleDetails as $saleDetail) {
+            $subtotal += $saleDetail->quantity*$saleDetail->price-$saleDetail->quantity* $saleDetail->price*$saleDetail->discount/100;
+        }
+        return view('admin.sale.show', compact('sale', 'saleDetails', 'subtotal'));
+
     }
 
     /**

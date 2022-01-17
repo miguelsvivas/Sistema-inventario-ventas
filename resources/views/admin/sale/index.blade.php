@@ -17,6 +17,9 @@
     </div>
     <table>
         <thead>
+            
+                
+           
             <tr>
                 <td>ID</td>
                 <td>Fecha</td>
@@ -25,9 +28,19 @@
                 <td>Acciones</td>
 
             </tr>
+            
         </thead>
         <tbody>
-        
+            @foreach ($sales as $sale)
+            <tr>
+                <th scope="row">
+                    <a href="{{route('sales.show', $sale)}}">{{$sale->id}}</a>
+                </th>
+                <td>{{$sale->total}}</td>
+
+
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

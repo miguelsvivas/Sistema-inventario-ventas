@@ -51,7 +51,10 @@
                 </td>
                 @endif
 
-                <td>Editar | Borrar</td>
+                <td>Editar | Borrar
+
+                    <a href="{{route('purchases.pdf',$purchase)}}"><i class="fas fa-print"></i></a>
+                </td>
 
             </tr>
 

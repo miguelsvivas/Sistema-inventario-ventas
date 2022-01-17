@@ -26,6 +26,8 @@ class CreateSaleDetailsTable extends Migration
             $table->integer('quantity');
             $table->decimal('price');
 
+            $table->decimal('discount');
+
             $table->timestamps();
         });
     }

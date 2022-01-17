@@ -23,9 +23,11 @@ Route::resource('providers', ProviderController::class)->names('providers');
 Route::resource('products', ProductController::class)->names('products');
 Route::resource('clients', ClientController::class)->names('clients');
 Route::resource('purchases', PurchaseController::class)->names('purchases');
-Route::resource('sales', SaleController::class)->names('sales');
+Route::resource('sales', 'SaleController')->names('sales');
 
 Auth::routes();
+
+Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');
 
 
 Route::get('get_products_by_id', 'ProductController@get_products_by_id')->name('get_products_by_id');
