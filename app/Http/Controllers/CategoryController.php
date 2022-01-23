@@ -9,6 +9,14 @@ use App\Http\Requests\Category\UpdateRequest;
 
 class CategoryController extends Controller
 {
+    public function __construct(){
+
+        $this->middleware('permission:index')->except('index');
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *

@@ -101,4 +101,16 @@ class SaleController extends Controller
     {
         //
     }
+
+
+    public function change_status(Sale $sale)
+    {
+        if ($sale->status == 'VALID') {
+            $sale->update(['status'=>'CANCELED']);
+            return redirect()->back();
+        } else {
+            $sale->update(['status'=>'VALID']);
+            return redirect()->back();
+        } 
+    }
 }

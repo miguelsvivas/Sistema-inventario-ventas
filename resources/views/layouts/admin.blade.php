@@ -32,14 +32,7 @@
 
 
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <span class="title">Customers</span>
-                    </a>
-
-
-                </li>
+               
                 <li>
                     <a href="{{route('purchases.index')}}">
                         <span class="icon"></span>
@@ -89,11 +82,28 @@
 
 
                 </li>
+                <li>
+                    <a href="{{route('users.index')}}">
+                        <span class="icon"></span>
+                        <span class="title">Usuarios</span>
+                    </a>
+
+
+                </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Cerrar Sesíon</span>
+                    <a href="{{route('permission.index')}}">
+                        <span class="icon"><i class="fas fa-key"></i></span>
+                        <span class="title">Permisos</span>
+                    </a>
+
+
+                </li>
+
+                <li>
+                    <a href="{{route('roles.index')}}">
+                        <span class="icon"><i class="fas fa-key"></i></span>
+                        <span class="title">Roles</span>
                     </a>
 
 
