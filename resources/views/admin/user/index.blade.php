@@ -12,7 +12,7 @@
     <div class="cardHeader">
         <h2>
            Usuarios Registrados</h2>
-        <a href="" class="btn">Crear usuario</a>   
+        <a href="{{route('users.create')}}" class="btn">Crear usuario</a>   
 
     </div>
     <table>

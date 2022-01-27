@@ -20,13 +20,13 @@ class UserSeeder extends Seeder
             'special'=>'all-access',
         ]);
 
-        // $user = User::create([
-        //     'name'=>'Miguel',
-        //     'email'=>'miguel@correo.com',
-        //     'password'=>'$2y$10$gxfVIF/lWaIGmC5Kbfh9HenWnTUim/cRZhtgHBwWM7H.wC6MHTVxC',
-        // ]);
+        $user = User::create([
+            'name'=>'Miguel',
+            'email'=>'miguel@correo.com',
+            'password'=>'$2y$10$gxfVIF/lWaIGmC5Kbfh9HenWnTUim/cRZhtgHBwWM7H.wC6MHTVxC',
+        ]);
 
-        // $user->roles()->sync(1);
+        $user->roles()->sync(1);
     }
 
     }

@@ -21,7 +21,7 @@
                         <td>ID</td>
                         <td>Nombre</td>
                         <td>Email</td>
-
+                        <td>Rol</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,10 @@
                             <td>s/{{ $user->email }}</td>
 
 
-
+                            <td> 
+                                 @foreach ($user->roles as $role)
+                                        <a href="">{{$role->name}}</a>
+                                @endforeach</td>
                             
 
 

@@ -25,7 +25,7 @@
 
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('home')}}">
                         <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                         <span class="title">Dashboard</span>
                     </a>
@@ -35,7 +35,7 @@
                
                 <li>
                     <a href="{{route('purchases.index')}}">
-                        <span class="icon"></span>
+                        <span class="icon"><i class="fas fa-cash-register fa-2x"></i></span>
                         <span class="title">Compras</span>
                     </a>
 
@@ -76,7 +76,7 @@
                 </li>
                 <li>
                     <a href="{{route('sales.index')}}">
-                        <span class="icon"></span>
+                        <span class="icon"><i class="fas fa-shopping-bag fa-2x"></i></span>
                         <span class="title">Ventas</span>
                     </a>
 
@@ -84,17 +84,8 @@
                 </li>
                 <li>
                     <a href="{{route('users.index')}}">
-                        <span class="icon"></span>
+                        <span class="icon"><i class="fas fa-user-tie fa-2x"></i></span>
                         <span class="title">Usuarios</span>
-                    </a>
-
-
-                </li>
-
-                <li>
-                    <a href="{{route('permission.index')}}">
-                        <span class="icon"><i class="fas fa-key"></i></span>
-                        <span class="title">Permisos</span>
                     </a>
 
 
@@ -125,9 +116,12 @@
                 <!-- seacrh-->
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
-                        <ion-icon name="search-outline"></ion-icon>
+                        <input type="text" placeholder="Buscar">
+                       
                     </label>
+
+                  
+
                 </div>
                 <!--userImage-->
                 <div class="user">

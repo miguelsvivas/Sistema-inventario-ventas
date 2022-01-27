@@ -14,6 +14,19 @@
            Registrar Categoria</h2>
 
 
+        </div>
+
+        @if ($errors->any())
+             <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+         </div>
+        @endif
+
+        
         {!! Form::open(['route'=>'categories.store', 'method'=>'POST']) !!}
         <div class="form-group">
             <label for="name">Nombre</label>
@@ -23,9 +36,9 @@
             <label for="description">Descripción</label>
             <textarea class="form-control" name="description" id="description" rows="3"></textarea>
         </div>
+        <br/>
         <button type="submit" class="btn btn-primary mr-2">Registrar</button>
         {!! Form::close() !!}
-        </div>
   
     </div>
 </div>

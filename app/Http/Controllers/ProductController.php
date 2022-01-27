@@ -8,9 +8,27 @@ use App\Provider;
 use Illuminate\Http\Request;
 Use App\Http\Requests\Product\StoreRequest;
 Use App\Http\Requests\Product\UpdateRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
+
+    public function __construct(){
+
+        $this->middleware('auth');
+        $this->middleware('can:product.create')->only(['create','store']);
+        $this->middleware('can:product.index')->only(['index']);
+        $this->middleware('can:product.edit')->only(['edit','update']);
+        $this->middleware('can:product.show')->only(['show']);
+        $this->middleware('can:product.destroy')->only(['destroy']);
+
+        $this->middleware('can:change.status.products')->only(['change_status']);
+    }
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -124,4 +142,17 @@ class ProductController extends Controller
             return response()->json($products);
         }
     }
+
+
+    public function change_status(Product $product)
+    {
+        if ($product->status == 'ACTIVE') {
+            $product->update(['status'=>'DEACTIVATED']);
+            return redirect()->back();
+        } else {
+            $product->update(['status'=>'ACTIVE']);
+            return redirect()->back();
+        } 
+    }
+
 }
